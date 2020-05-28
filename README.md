@@ -17,8 +17,8 @@ https://arxiv.org/pdf/2005.07274.pdf<br>
 <a href="https://www.youtube.com/watch?v=HuEwjpw5O64&feature=youtu.be">
   <img src="https://img.youtube.com/vi/HuEwjpw5O64/0.jpg" width="300"/>
 </a>
-<a href="https://www.youtube.com/watch?v=W9BVsZhOcH4&feature=youtu.be">
-  <img src="https://img.youtube.com/vi/W9BVsZhOcH4/0.jpg" width="300"/>
+<a href="https://www.youtube.com/watch?v=UfvUny4pdMA&feature=youtu.be">
+  <img src="https://img.youtube.com/vi/UfvUny4pdMA/0.jpg" width="300"/>
 </a>
 <a href="https://www.youtube.com/watch?v=Ifgcm6VI3NE&feature=youtu.be">
   <img src="https://img.youtube.com/vi/Ifgcm6VI3NE/0.jpg" width="300"/>
