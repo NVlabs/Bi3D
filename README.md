@@ -1,9 +1,9 @@
 ## Bi3D &mdash; Official PyTorch Implementation
 
-![Teaser image](imgs/teaser.png)
+![Teaser image](data/teaser.png)
 
 **Bi3D: Stereo Depth Estimation via Binary Classifications**<br>
-Abhishek Badki, Alejandro Troccoli, Kihwan Kim, Jan Kautz, Pradeep Sen, Orazio Gallo<br>
+Abhishek Badki, Alejandro Troccoli, Kihwan Kim, Jan Kautz, Pradeep Sen, and Orazio Gallo<br>
 IEEE CVPR 2020<br>
 
 ## Abstract: 
@@ -27,10 +27,75 @@ https://arxiv.org/pdf/2005.07274.pdf<br>
 ## Citing Bi3D:
     @InProceedings{badki2020Bi3D,
     author = {Badki, Abhishek and Troccoli, Alejandro and Kim, Kihwan and Kautz, Jan and Sen, Pradeep and Gallo, Orazio},
-    title = {Bi3D: Stereo Depth Estimation via Binary Classifications},
+    title = {{Bi3D}: {S}tereo Depth Estimation via Binary Classifications},
     booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
     year = {2020}
     }
 
+or the arXiv paper
+
+    @InProceedings{badki2020Bi3D,
+    author = {Badki, Abhishek and Troccoli, Alejandro and Kim, Kihwan and Kautz, Jan and Sen, Pradeep and Gallo, Orazio},
+    title = {{Bi3D}: {S}tereo Depth Estimation via Binary Classifications},
+    booktitle = {arXiv preprint arXiv:2005.07274},
+    year = {2020}
+    }
+
+
 ## Code:<br>
-Code coming soon. 
+
+## License
+
+Copyright (C) 2020 NVIDIA Corporation.  All rights reserved.
+
+Licensed under the [NVIDIA Source Code License](LICENSE.md)
+
+## Description
+
+
+## Setup
+
+We offer two ways of setting up your environemnt, through Docker or Conda.
+
+### Docker
+For convenience, we provide a Dockerfile to build a container image to run the code. The image will contain the Python dependencies.
+
+System requirements:
+
+1. Docker (Tested on version 19.03.11)
+
+2. [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker/wiki)
+
+3. NVIDIA GPU driver.
+
+Build the container image:
+```
+docker build -t bi3d . -f envs/bi3d_pytorch_19_01.DockerFile
+```
+To launch the container, run the following:
+```
+docker run --rm -it --gpus=all -v $(pwd):/bi3d -w /bi3d --net=host --ipc=host bi3d:latest /bin/bash
+```
+
+### Conda
+All dependencies will be installed automatically using the following:
+```
+conda env create -f envs/bi3d_conda_env.yml 
+```
+You can activate the environment by running:
+```
+conda activate bi3d
+```
+
+## Pre-trained models
+Download the pre-trained models [here](https://drive.google.com/file/d/1cVP9RNY0K2s_bty5O7BnHXXQwKwTy2SE).
+
+## Run the demo
+
+```
+cd src
+# RUN DEMO FOR SCENEFLOW DATASET 
+sh run_demo_sf.sh
+# RUN DEMO FOR KITTI15 DATASET
+sh run_demo_kitti15.sh
+```

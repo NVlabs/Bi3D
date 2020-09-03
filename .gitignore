@@ -1,0 +1,11 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+*.png
+*.pfm
+*.pth.tar
+*.npy
+*.ppm
+*.pyc
+*.tar
+*.zip
+*.gif
