@@ -44,20 +44,20 @@ or the arXiv paper
 
 ## Code:<br>
 
-## License
+### License
 
 Copyright (C) 2020 NVIDIA Corporation.  All rights reserved.
 
 Licensed under the [NVIDIA Source Code License](LICENSE.md)
 
-## Description
+### Description
 
 
-## Setup
+### Setup
 
 We offer two ways of setting up your environemnt, through Docker or Conda.
 
-### Docker
+#### Docker
 For convenience, we provide a Dockerfile to build a container image to run the code. The image will contain the Python dependencies.
 
 System requirements:
@@ -77,7 +77,7 @@ To launch the container, run the following:
 docker run --rm -it --gpus=all -v $(pwd):/bi3d -w /bi3d --net=host --ipc=host bi3d:latest /bin/bash
 ```
 
-### Conda
+#### Conda
 All dependencies will be installed automatically using the following:
 ```
 conda env create -f envs/bi3d_conda_env.yml 
@@ -87,10 +87,10 @@ You can activate the environment by running:
 conda activate bi3d
 ```
 
-## Pre-trained models
+### Pre-trained models
 Download the pre-trained models [here](https://drive.google.com/file/d/1cVP9RNY0K2s_bty5O7BnHXXQwKwTy2SE).
 
-## Run the demo
+### Run the demo
 
 ```
 cd src
