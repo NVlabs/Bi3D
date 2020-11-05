@@ -32,6 +32,17 @@ The code in this file is adapted from https://github.com/JiaRenChang/PSMNet
 
 
 def conv2d(in_planes, out_planes, kernel_size, stride, pad, dilation):
+    """
+    Conv2d layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        pad: (int): write your description
+        dilation: (str): write your description
+    """
 
     return nn.Sequential(
         nn.Conv2d(
@@ -47,6 +58,17 @@ def conv2d(in_planes, out_planes, kernel_size, stride, pad, dilation):
 
 
 def conv2d_relu(in_planes, out_planes, kernel_size, stride, pad, dilation):
+    """
+    Conv2d layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        pad: (int): write your description
+        dilation: (todo): write your description
+    """
 
     return nn.Sequential(
         nn.Conv2d(
@@ -63,6 +85,17 @@ def conv2d_relu(in_planes, out_planes, kernel_size, stride, pad, dilation):
 
 
 def conv2d_lrelu(in_planes, out_planes, kernel_size, stride, pad, dilation=1):
+    """
+    2d convolution layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        pad: (int): write your description
+        dilation: (str): write your description
+    """
 
     return nn.Sequential(
         nn.Conv2d(
@@ -83,6 +116,18 @@ class BasicBlock(nn.Module):
     expansion = 1
 
     def __init__(self, inplanes, planes, stride, downsample, pad, dilation):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            inplanes: (todo): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+            downsample: (todo): write your description
+            pad: (todo): write your description
+            dilation: (todo): write your description
+        """
 
         super(BasicBlock, self).__init__()
 
@@ -93,6 +138,13 @@ class BasicBlock(nn.Module):
         self.stride = stride
 
     def forward(self, x):
+        """
+        Forward computation of forward.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         out = self.conv1(x)
         out = self.conv2(out)
@@ -107,6 +159,12 @@ class BasicBlock(nn.Module):
 
 class FeatExtractNetSPP(nn.Module):
     def __init__(self):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+        """
 
         super(FeatExtractNetSPP, self).__init__()
 
@@ -149,6 +207,18 @@ class FeatExtractNetSPP(nn.Module):
                 m.bias.data.zero_()
 
     def _make_layer(self, block, planes, blocks, stride, pad, dilation):
+        """
+        Make a layer.
+
+        Args:
+            self: (todo): write your description
+            block: (todo): write your description
+            planes: (todo): write your description
+            blocks: (todo): write your description
+            stride: (int): write your description
+            pad: (int): write your description
+            dilation: (str): write your description
+        """
         downsample = None
         if stride != 1 or self.inplanes != planes * block.expansion:
             downsample = nn.Sequential(
@@ -165,6 +235,13 @@ class FeatExtractNetSPP(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, input):
+        """
+        Compute the output of the model.
+
+        Args:
+            self: (todo): write your description
+            input: (todo): write your description
+        """
 
         output0 = self.firstconv(input)
         output1 = self.layer1(output0)

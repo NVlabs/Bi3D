@@ -18,6 +18,19 @@ __all__ = ["segnet2d"]
 
 # Util Functions
 def conv(in_planes, out_planes, kernel_size=3, stride=1, activefun=nn.LeakyReLU(0.1, inplace=True)):
+    """
+    Convaky convolution.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        activefun: (todo): write your description
+        nn: (todo): write your description
+        LeakyReLU: (todo): write your description
+        inplace: (bool): write your description
+    """
 
     return nn.Sequential(
         nn.Conv2d(
@@ -33,6 +46,19 @@ def conv(in_planes, out_planes, kernel_size=3, stride=1, activefun=nn.LeakyReLU(
 
 
 def deconv(in_planes, out_planes, kernel_size=4, stride=2, activefun=nn.LeakyReLU(0.1, inplace=True)):
+    """
+    Deconvolution layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        activefun: (todo): write your description
+        nn: (todo): write your description
+        LeakyReLU: (todo): write your description
+        inplace: (bool): write your description
+    """
 
     return nn.Sequential(
         nn.ConvTranspose2d(
@@ -44,6 +70,12 @@ def deconv(in_planes, out_planes, kernel_size=4, stride=2, activefun=nn.LeakyReL
 
 class SegNet2D(nn.Module):
     def __init__(self):
+        """
+        Initialize the convolution
+
+        Args:
+            self: (todo): write your description
+        """
 
         super(SegNet2D, self).__init__()
 
@@ -106,6 +138,13 @@ class SegNet2D(nn.Module):
         return
 
     def forward(self, x):
+        """
+        Implement forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         out_conv0 = x
         out_conv1 = self.conv1_1(self.conv1(out_conv0))
@@ -135,6 +174,13 @@ class SegNet2D(nn.Module):
 
 
 def segnet2d(options, data=None):
+    """
+    A segnet model.
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING SegNet2D")
     for key in options:

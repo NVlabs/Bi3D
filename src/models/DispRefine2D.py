@@ -40,6 +40,18 @@ class BasicBlock(nn.Module):
     expansion = 1
 
     def __init__(self, inplanes, planes, stride, downsample, pad, dilation):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            inplanes: (todo): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+            downsample: (todo): write your description
+            pad: (todo): write your description
+            dilation: (todo): write your description
+        """
 
         super(BasicBlock, self).__init__()
 
@@ -50,6 +62,13 @@ class BasicBlock(nn.Module):
         self.stride = stride
 
     def forward(self, x):
+        """
+        Forward computation of forward.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         out = self.conv1(x)
         out = self.conv2(out)
@@ -64,6 +83,13 @@ class BasicBlock(nn.Module):
 
 class DispRefineNet(nn.Module):
     def __init__(self, out_planes=32):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            out_planes: (int): write your description
+        """
 
         super(DispRefineNet, self).__init__()
 
@@ -101,6 +127,13 @@ class DispRefineNet(nn.Module):
         return
 
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         disp = x[:, 0, :, :][:, None, :, :]
         output = self.conv2d_feature(x)

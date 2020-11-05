@@ -31,6 +31,13 @@ Generates refined output using input image as guide.
 
 
 def disprefinenet(options, data=None):
+    """
+    Disprefinfinenet model.
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING DispRefineNet")
     for key in options:
@@ -54,6 +61,14 @@ Generates refined output using input image as guide.
 
 class SegRefineNet(nn.Module):
     def __init__(self, in_planes=17, out_planes=8):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            in_planes: (int): write your description
+            out_planes: (int): write your description
+        """
 
         super(SegRefineNet, self).__init__()
 
@@ -78,6 +93,13 @@ class SegRefineNet(nn.Module):
                 m.bias.data.zero_()
 
     def forward(self, input):
+        """
+        Forward forward computation.
+
+        Args:
+            self: (todo): write your description
+            input: (todo): write your description
+        """
 
         output0 = self.conv1(input)
         output = self.classif1(output0)
@@ -86,6 +108,13 @@ class SegRefineNet(nn.Module):
 
 
 def segrefinenet(options, data=None):
+    """
+    Construct a segmentation model.
+
+    Args:
+        options: (dict): write your description
+        data: (todo): write your description
+    """
 
     print("==> USING SegRefineNet")
     for key in options:

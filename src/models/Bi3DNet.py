@@ -22,6 +22,16 @@ __all__ = ["bi3dnet_binary_depth", "bi3dnet_continuous_depth_2D", "bi3dnet_conti
 
 
 def compute_cost_volume(features_left, features_right, disp_ids, max_disp, is_disps_per_example):
+    """
+    Compute the volume of - wise features.
+
+    Args:
+        features_left: (todo): write your description
+        features_right: (todo): write your description
+        disp_ids: (str): write your description
+        max_disp: (int): write your description
+        is_disps_per_example: (todo): write your description
+    """
 
     batch_size = features_left.shape[0]
     feature_size = features_left.shape[1]
@@ -53,6 +63,17 @@ Bi3DNet for continuous depthmap generation. Doesn't use 3D regularization.
 
 class Bi3DNetContinuousDepth2D(nn.Module):
     def __init__(self, options, featnet_arch, segnet_arch, refinenet_arch=None, max_disparity=192):
+        """
+        Initialize network interface
+
+        Args:
+            self: (todo): write your description
+            options: (dict): write your description
+            featnet_arch: (todo): write your description
+            segnet_arch: (todo): write your description
+            refinenet_arch: (str): write your description
+            max_disparity: (int): write your description
+        """
 
         super(Bi3DNetContinuousDepth2D, self).__init__()
 
@@ -73,6 +94,15 @@ class Bi3DNetContinuousDepth2D(nn.Module):
         return
 
     def forward(self, img_left, img_right, disp_ids):
+        """
+        Parameters ---------- image_left
+
+        Args:
+            self: (todo): write your description
+            img_left: (todo): write your description
+            img_right: (todo): write your description
+            disp_ids: (str): write your description
+        """
 
         batch_size = img_left.shape[0]
         psv_size = disp_ids.shape[1]
@@ -123,6 +153,13 @@ class Bi3DNetContinuousDepth2D(nn.Module):
 
 
 def bi3dnet_continuous_depth_2D(options, data=None):
+    """
+    2dnet - 2d model.
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING Bi3DNetContinuousDepth2D")
     for key in options:
@@ -158,6 +195,18 @@ class Bi3DNetContinuousDepth3D(nn.Module):
         refinenet3d_arch=None,
         max_disparity=192,
     ):
+        """
+        A method to create a new interface
+
+        Args:
+            self: (todo): write your description
+            options: (dict): write your description
+            featnet_arch: (todo): write your description
+            segnet_arch: (todo): write your description
+            refinenet_arch: (str): write your description
+            refinenet3d_arch: (str): write your description
+            max_disparity: (int): write your description
+        """
 
         super(Bi3DNetContinuousDepth3D, self).__init__()
 
@@ -179,6 +228,15 @@ class Bi3DNetContinuousDepth3D(nn.Module):
         return
 
     def forward(self, img_left, img_right, disp_ids):
+        """
+        Parameters ---------- image_left
+
+        Args:
+            self: (todo): write your description
+            img_left: (todo): write your description
+            img_right: (todo): write your description
+            disp_ids: (str): write your description
+        """
 
         batch_size = img_left.shape[0]
         psv_size = disp_ids.shape[1]
@@ -252,6 +310,13 @@ class Bi3DNetContinuousDepth3D(nn.Module):
 
 
 def bi3dnet_continuous_depth_3D(options, data=None):
+    """
+    Load a 3dnet model
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING Bi3DNetContinuousDepth3D")
     for key in options:
@@ -289,6 +354,19 @@ class Bi3DNetBinaryDepth(nn.Module):
         max_disparity=192,
         is_disps_per_example=False,
     ):
+        """
+        Initialize a network interface.
+
+        Args:
+            self: (todo): write your description
+            options: (dict): write your description
+            featnet_arch: (todo): write your description
+            segnet_arch: (todo): write your description
+            refinenet_arch: (str): write your description
+            featnethr_arch: (todo): write your description
+            max_disparity: (int): write your description
+            is_disps_per_example: (bool): write your description
+        """
 
         super(Bi3DNetBinaryDepth, self).__init__()
 
@@ -309,6 +387,15 @@ class Bi3DNetBinaryDepth(nn.Module):
         return
 
     def forward(self, img_left, img_right, disp_ids):
+        """
+        Parameters ---------- image_left
+
+        Args:
+            self: (todo): write your description
+            img_left: (todo): write your description
+            img_right: (todo): write your description
+            disp_ids: (str): write your description
+        """
 
         batch_size = img_left.shape[0]
         psv_size = disp_ids.shape[1]
@@ -376,6 +463,13 @@ class Bi3DNetBinaryDepth(nn.Module):
 
 
 def bi3dnet_binary_depth(options, data=None):
+    """
+    Create a bz3dnet model.
+
+    Args:
+        options: (todo): write your description
+        data: (array): write your description
+    """
 
     print("==> USING Bi3DNetBinaryDepth")
     for key in options:

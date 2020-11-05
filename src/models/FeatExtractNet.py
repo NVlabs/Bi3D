@@ -27,6 +27,13 @@ Used for final refinement.
 
 class FeatExtractNetHR(nn.Module):
     def __init__(self, out_planes=16):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            out_planes: (int): write your description
+        """
 
         super(FeatExtractNetHR, self).__init__()
 
@@ -55,12 +62,26 @@ class FeatExtractNetHR(nn.Module):
         return
 
     def forward(self, input):
+        """
+        R forward forward computation.
+
+        Args:
+            self: (todo): write your description
+            input: (todo): write your description
+        """
 
         output = self.conv1(input)
         return output
 
 
 def featextractnethr(options, data=None):
+    """
+    Featurate a model
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING FeatExtractNetHR")
     for key in options:
@@ -83,6 +104,13 @@ Uses Spatial Pyramid Pooling inspired by PSMNet.
 
 
 def featextractnetspp(options, data=None):
+    """
+    Featurize model.
+
+    Args:
+        options: (dict): write your description
+        data: (array): write your description
+    """
 
     print("==> USING FeatExtractNetSPP")
     for key in options:

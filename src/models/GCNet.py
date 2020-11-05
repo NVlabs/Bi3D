@@ -22,6 +22,19 @@ The code in this file is adapted from https://github.com/wyf2017/DSMnet
 
 
 def conv3d_relu(in_planes, out_planes, kernel_size=3, stride=1, activefun=nn.ReLU(inplace=True)):
+    """
+    Relu conv3d conv3d layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        activefun: (todo): write your description
+        nn: (todo): write your description
+        ReLU: (todo): write your description
+        inplace: (bool): write your description
+    """
 
     return nn.Sequential(
         nn.Conv3d(in_planes, out_planes, kernel_size, stride, padding=(kernel_size - 1) // 2, bias=True),
@@ -30,6 +43,19 @@ def conv3d_relu(in_planes, out_planes, kernel_size=3, stride=1, activefun=nn.ReL
 
 
 def deconv3d_relu(in_planes, out_planes, kernel_size=4, stride=2, activefun=nn.ReLU(inplace=True)):
+    """
+    Deconv3d layer.
+
+    Args:
+        in_planes: (int): write your description
+        out_planes: (str): write your description
+        kernel_size: (int): write your description
+        stride: (int): write your description
+        activefun: (todo): write your description
+        nn: (todo): write your description
+        ReLU: (todo): write your description
+        inplace: (bool): write your description
+    """
 
     assert stride > 1
     p = (kernel_size - 1) // 2
@@ -49,6 +75,13 @@ GCNet style 3D regularization network
 
 class feature3d(nn.Module):
     def __init__(self, num_F):
+        """
+        Initialize the convolution
+
+        Args:
+            self: (todo): write your description
+            num_F: (int): write your description
+        """
 
         super(feature3d, self).__init__()
         self.F = num_F
@@ -80,6 +113,13 @@ class feature3d(nn.Module):
         self.l37 = nn.Conv3d(self.F, 1, kernel_size=3, stride=1, padding=1, bias=True)
 
     def forward(self, x):
+        """
+        Forward forward forward algorithm.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         x18 = x
         x21 = self.l21(x18)

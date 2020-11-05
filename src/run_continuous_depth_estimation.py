@@ -51,6 +51,11 @@ args, unknown = parser.parse_known_args()
 
 ##############################################################################################################
 def main():
+    """
+    Main function.
+
+    Args:
+    """
 
     options = vars(args)
     print("==> ALL PARAMETERS")
