@@ -18,6 +18,12 @@ from models.GCNet import feature3d
 
 
 def net_init(net):
+    """
+    Initialize the network.
+
+    Args:
+        net: (todo): write your description
+    """
 
     for m in net.modules():
         if isinstance(m, nn.Linear):
@@ -44,6 +50,13 @@ def net_init(net):
 
 class SegRegNet3D(nn.Module):
     def __init__(self, F=16):
+        """
+        Initialize network
+
+        Args:
+            self: (todo): write your description
+            F: (int): write your description
+        """
 
         super(SegRegNet3D, self).__init__()
 
@@ -53,6 +66,14 @@ class SegRegNet3D(nn.Module):
         net_init(self)
 
     def forward(self, fL, conf_volume):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            fL: (todo): write your description
+            conf_volume: (todo): write your description
+        """
 
         fL_stack = fL[:, :, None, :, :].repeat(1, 1, int(conf_volume.shape[2]), 1, 1)
         conf_vol_preprocess = self.conf_preprocess(conf_volume)
@@ -63,6 +84,13 @@ class SegRegNet3D(nn.Module):
 
 
 def segregnet3d(options, data=None):
+    """
+    R segregnet3d.
+
+    Args:
+        options: (dict): write your description
+        data: (todo): write your description
+    """
 
     print("==> USING SegRegNet3D")
     for key in options:

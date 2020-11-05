@@ -11,6 +11,12 @@ import numpy as np
 
 
 def disp2rgb(disp):
+    """
+    Convert the color from rgb coordinates to rgb.
+
+    Args:
+        disp: (todo): write your description
+    """
     H = disp.shape[0]
     W = disp.shape[1]
 
@@ -55,6 +61,12 @@ def disp2rgb(disp):
 
 
 def str2bool(bool_input_string):
+    """
+    Convert a boolean to a boolean.
+
+    Args:
+        bool_input_string: (str): write your description
+    """
     if isinstance(bool_input_string, bool):
         return bool_input_string
     if bool_input_string.lower() in ("true"):
