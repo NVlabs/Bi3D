@@ -88,7 +88,7 @@ conda activate bi3d
 ```
 
 ### Pre-trained models
-Download the pre-trained models [here](https://drive.google.com/file/d/1cVP9RNY0K2s_bty5O7BnHXXQwKwTy2SE).
+Download the pre-trained models [here](https://drive.google.com/drive/folders/1CiBPtEuwR9wO-Xkzr7IolU5JPGiAvY6N).
 
 ### Run the demo
 
